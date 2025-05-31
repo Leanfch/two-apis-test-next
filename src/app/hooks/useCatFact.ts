@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 
 interface props {
     url: string
+    refresh: boolean
 }
 
-const useCatFact = ({ url }: props) => {
+const useCatFact = ({ url, refresh }: props) => {
     const [catFact, setCatFact] = useState<string | null>(null);
 
     useEffect(() => {
@@ -20,7 +21,7 @@ const useCatFact = ({ url }: props) => {
         }
 
         fetchCatFact();
-    }, [url]);
+    }, [url, refresh]);
 
     return catFact;
 };
